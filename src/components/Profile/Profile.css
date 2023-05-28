@@ -1,0 +1,4 @@
+.songs-section {
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Cabinet-Grotesk";
+  src: url("../../vendor/fonts/CabinetGrotesk-Bold.woff") format("woff"),
+    url("../../vendor/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
+}
+
+.songs {
+  padding: 0 40px;
+}
+
+.songs__header {
+  font-size: 30px;
+  line-height: 1.2;
+  color: #000000;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+}
+
+.songs__card-container {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  flex-wrap: wrap;
+  margin: 20px;
+  /*gap: 20px;
+  justify-content: center;
+  margin-top: 34px; */
+}

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Cabinet-Grotesk";
+  src: url("../../vendor/fonts/CabinetGrotesk-Bold.woff") format("woff"),
+    url("../../vendor/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar__text {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  color: #000000;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.navbar__button {
+  border: none;
+  background-color: #fff;
+  color: #000000;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  cursor: pointer;
+}
