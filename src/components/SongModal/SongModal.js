@@ -9,18 +9,18 @@ const SongModal = ({ selectedSongCard, onClose }) => {
           type="button"
           onClick={onClose}
         ></button>
-        {/* <img
+        <img
           className="modal__songcard-popup-image"
-          src={selectedCard.imageUrl}
-          alt={selectedCard.name}
-        /> */}
+          src={selectedSongCard.albumImage}
+          alt={selectedSongCard.songName}
+        />
         <div className="modal__songcard-popup-text">
           <div>
             <div className="modal__songcard-popup-name">
-              {selectedSongCard.songname}
+              {selectedSongCard.songName}
             </div>
             <div className="modal__songcard-popup-name">
-              {selectedSongCard.artist}
+              {selectedSongCard.artistName}
             </div>
           </div>
         </div>

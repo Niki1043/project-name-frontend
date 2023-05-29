@@ -30,11 +30,10 @@ async function getTopTracks(token) {
 
 //https://api.spotify.com/v1/recommendations?limit=10&market=PL&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA%2C2Q9nA56DKKJhj4cHMbHlAS",
 
-async function getRecommendations(topTracksIds, token) {
+async function getRecommendations(topTrackId, token) {
   const result = await fetch(
-    `https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_tracks=${topTracksIds.join(
-      ","
-    )}`,
+    `https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_tracks=${topTrackId}
+    `,
     {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },

@@ -37,6 +37,15 @@
   transition: opacity 0.2s linear;
 }
 
+.modal__songcard-popup-image {
+  width: 100%;
+  margin-top: -23px;
+  width: 498px;
+  height: 498px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
 .modal__songcard-popup-text {
   display: flex;
   justify-content: space-between;

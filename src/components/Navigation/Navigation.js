@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 //needs logged in set and not logged in set
 //not logged in => shuffles to login button on Main and about me
 // logged in => buttons are Top Tracks and Recommended Tracks
+// isLoggedIn for token value
 const Navigation = ({ token, username }) => {
   return (
     <div className="navbar">
@@ -17,9 +18,11 @@ const Navigation = ({ token, username }) => {
               Top 10 Played
             </button>
           </Link>
-          <button type="button" className="navbar__button">
-            Top 10 Recommended
-          </button>
+          <Link className="header__userinfo-link" to="/recommended">
+            <button type="button" className="navbar__button">
+              Top 10 Recommended
+            </button>
+          </Link>
         </div>
       )}
     </div>

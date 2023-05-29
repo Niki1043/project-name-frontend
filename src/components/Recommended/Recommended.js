@@ -2,11 +2,8 @@ import Header from "../Header/Header";
 import SongsSection from "../SongsSection/SongsSection";
 import React from "react";
 
-import SongModal from "../SongModal/SongModal";
-import { useState } from "react";
-
 //Add in SongsSection - whcih contains songcard
-function Profile({ token, username, onSelectSong, songCards }) {
+function Recommended({ token, username, onSelectSong, songCards }) {
   return (
     <>
       <Header token={token} username={username} />
@@ -15,4 +12,4 @@ function Profile({ token, username, onSelectSong, songCards }) {
   );
 }
 
-export default Profile;
+export default Recommended;

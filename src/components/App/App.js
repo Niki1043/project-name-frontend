@@ -16,6 +16,7 @@ import {
 } from "../../utils/api";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SongModal from "../SongModal/SongModal";
+import Recommended from "../Recommended/Recommended";
 
 function App() {
   const CLIENT_ID = "ebaf5ea92e1a4c00a49e87c04ca73fec";
@@ -32,14 +33,17 @@ function App() {
   const [username, setUsername] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [selectedSong, setSelectedSong] = useState({});
-  const [songCards, setSongCards] = useState([]);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [songTopTenPlayedCards, setSongTopTenPlayedCards] = useState([]);
+  const [songTopTenRecsCards, setSongTopTenRecsCards] = useState([]);
 
   // Set UseEffect
   useEffect(() => {
     // get window url
     const hash = window.location.hash;
-    console.log(hash);
+    // console.log(hash);
     let token = window.localStorage.getItem("token");
+    setToken(token);
     //console.log(token);
     // console.log(hash); // returns #access_token=xxxxx from url up to &
     // once logged in, gets and sets token from url
@@ -55,7 +59,7 @@ function App() {
     }
   }, []);
 
-  console.log(token);
+  // console.log(token);
 
   // Set Handlers
   const logout = () => {
@@ -63,6 +67,7 @@ function App() {
     window.location.hash = "";
     window.localStorage.removeItem("token");
     window.onload = window.localStorage.clear();
+    // setIsLoggedIn(false);
   };
 
   const handleCreateModal = () => {
@@ -78,74 +83,63 @@ function App() {
     setSelectedSong(songcard);
   };
 
-  /// PROFILE API TO GET USER DATA - TO BE TIDIUED UP AS NEEDED FROM CONSOLE LOG
-  fetchProfile(token)
-    .then((res) => {
-      setUsername(res.display_name);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  /// Get user profile info
+  useEffect(() => {
+    const storedToken = window.localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+      fetchProfile(storedToken)
+        .then((res) => {
+          setUsername(res.display_name);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
-  // ///GET TOP 10 TRACKS - Check object for more info with name and artist info
-  getTopTracks(token)
-    .then((res) => {
-      console.log(res);
-      const song_set = res.items;
-      console.log(song_set);
+  ///Get User's top 10 most played tracks
+  useEffect(() => {
+    const storedToken = window.localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+      getTopTracks(storedToken)
+        .then((res) => {
+          // console.log(res);
+          const songs_toptenplayed = res.items.map((item) => {
+            return {
+              albumImage: item.album.images[1].url,
+              artistName: item.artists[0].name,
+              trackId: item.id,
+              songName: item.name,
+            };
+          });
+          // console.log(songs_toptenplayed);
+          setSongTopTenPlayedCards(songs_toptenplayed);
+          getRecommendations(songs_toptenplayed[0].trackId, storedToken).then(
+            (res) => {
+              //console.log(res.tracks);
+              const songs_toptenrecs = res.tracks.map((item) => {
+                return {
+                  albumImage: item.album.images[1].url,
+                  artistName: item.artists[0].name,
+                  trackId: item.id,
+                  songName: item.name,
+                };
+              });
+              //console.log(songs_toptenrecs);
+              setSongTopTenRecsCards(songs_toptenrecs);
+            }
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
-      const song_name = song_set.map(({ name }) => `${name}`);
-      console.log(song_name);
-      const song_artist = song_set.map(
-        ({ artists }) => `${artists.map((artist) => artist.name)}`
-      );
-      console.log(song_artist);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-  // const toptracks = getTopTracks(token);
-  // //console.log(toptracks);
-  // const topTracks = toptracks.then(function (result) {
-  //   //console.log(result.items);
-  //   console.log(
-  //     result.items?.map(
-  //       ({ name, artists }) =>
-  //         `${name} by ${artists.map((artist) => artist.name).join(", ")}`
-  //     )
-  //   );
-  // });
-
-  ////Stuff
-
-  // // Get top10Tracks IDs to const array list - use this as input to recommendations API
-  // const toptracksId = getTopTracks(token);
-  // //console.log(toptracksId);
-  // const topTracksId = toptracksId.then(function (result) {
-  //   //console.log(result.items);
-  //   //console.log(result.items?.map(({ id }) => `${id}`));
-  // });
-
-  // const toptracksIds = [
-  //   "18zjwSgYiwu1Meb7Po3tUP",
-  //   // "4poeu6nUr4UQo1RXpp29Js",
-  //   // "0EJ3N6BhFDrUc26xBEpztv",
-  //   // "5ktyEZbrgBEePsu6MW5Cvw",
-  //   // "7myke8Id4WyKFlWcRBJdIF",
-  //   // // "7wz8LNfmGZ3C0PwKW9LdDg",
-  //   // // "0M1pfDTZGWC7cBuEx3FwwT",
-  //   // // "0vhOJ8a3M2LWnBNrDXJKDl",
-  //   // // "107nvz0Fjnsq9O9g61myZ5",
-  //   // // "1QQgmN383kUqjioRoTSfF3",
-  // ];
-
-  // // // GET 10 RECCOMENDATIONS
-  // const recommendedTracks = getRecommendations(toptracksIds, token);
-  // //console.log(recommendedTracks);
-  // const recTracks = recommendedTracks.then(function (result) {
-  //   //console.log(result.tracks);
-  // // });
+  // console.log(songTopTenPlayedCards); // tracks the info correctly as array of objects
+  // console.log(songTopTenRecsCards);
 
   return (
     <BrowserRouter>
@@ -169,6 +163,17 @@ function App() {
                 token={token}
                 username={username}
                 onSelectSong={handleSelectedSong}
+                songCards={songTopTenPlayedCards}
+              />
+            </Route>
+          </ProtectedRoute>
+          <ProtectedRoute path="/recommended" token={token}>
+            <Route path="/recommended">
+              <Recommended
+                token={token}
+                username={username}
+                onSelectSong={handleSelectedSong}
+                songCards={songTopTenRecsCards}
               />
             </Route>
           </ProtectedRoute>
