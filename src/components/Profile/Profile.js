@@ -6,11 +6,15 @@ import SongModal from "../SongModal/SongModal";
 import { useState } from "react";
 
 //Add in SongsSection - whcih contains songcard
-function Profile({ token, username, onSelectSong, songCards }) {
+function Profile({ token, username, onSelectSong, songCards, errorState }) {
   return (
     <>
       <Header token={token} username={username} />
-      <SongsSection songCards={songCards} onSelectSong={onSelectSong} />
+      {errorState ? (
+        <p>HERE IS SOME MAHOR ISSUES WITH TEH CARDS</p>
+      ) : (
+        <SongsSection songCards={songCards} onSelectSong={onSelectSong} />
+      )}
     </>
   );
 }

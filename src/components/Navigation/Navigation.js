@@ -11,16 +11,20 @@ const Navigation = ({ token, username }) => {
       {!token ? (
         <></>
       ) : (
-        <div>
-          <p className="navbar__text">{username}</p>
-          <Link className="header__userinfo-link" to="/profile">
+        <div className="navbar__container">
+          <Link className="navbar__userinfo-link" to="/">
             <button type="button" className="navbar__button">
-              Top 10 Played
+              {username}
             </button>
           </Link>
-          <Link className="header__userinfo-link" to="/recommended">
+          <Link className="navbar__userinfo-link" to="/profile">
             <button type="button" className="navbar__button">
-              Top 10 Recommended
+              Top10 Played
+            </button>
+          </Link>
+          <Link className="navbar__userinfo-link" to="/recommended">
+            <button type="button" className="navbar__button">
+              Top10 Recommended
             </button>
           </Link>
         </div>

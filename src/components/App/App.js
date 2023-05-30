@@ -33,19 +33,21 @@ function App() {
   const [username, setUsername] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [selectedSong, setSelectedSong] = useState({});
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [songTopTenPlayedCards, setSongTopTenPlayedCards] = useState([]);
   const [songTopTenRecsCards, setSongTopTenRecsCards] = useState([]);
+  const [errorState, setErrorState] = useState(false);
 
-  // Set UseEffect
+  // const throwError = () => {
+  //   throw Error("I'm an error");
+  // };
+
+  // Set Login/Token UseEffect
   useEffect(() => {
     // get window url
     const hash = window.location.hash;
     // console.log(hash);
     let token = window.localStorage.getItem("token");
     setToken(token);
-    //console.log(token);
-    // console.log(hash); // returns #access_token=xxxxx from url up to &
     // once logged in, gets and sets token from url
     if (!token && hash) {
       let token = hash
@@ -59,20 +61,19 @@ function App() {
     }
   }, []);
 
-  // console.log(token);
+  // console.log(errorMessage);
 
   // Set Handlers
-  const logout = () => {
+  const handleLogout = () => {
     setToken("");
     window.location.hash = "";
     window.localStorage.removeItem("token");
     window.onload = window.localStorage.clear();
-    // setIsLoggedIn(false);
   };
 
-  const handleCreateModal = () => {
-    setActiveModal("create");
-  };
+  // const handleCreateModal = () => {
+  //   setActiveModal("create");
+  // };
 
   const handleCloseModal = () => {
     setActiveModal("");
@@ -134,6 +135,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+          setErrorState(true);
         });
     }
   }, []);
@@ -153,7 +155,7 @@ function App() {
               REDIRECT_URI={REDIRECT_URI}
               RESPONSE_TYPE={RESPONSE_TYPE}
               token={token}
-              logout={logout}
+              logout={handleLogout}
               username={username}
             />
           </Route>
@@ -164,6 +166,7 @@ function App() {
                 username={username}
                 onSelectSong={handleSelectedSong}
                 songCards={songTopTenPlayedCards}
+                errorState={errorState}
               />
             </Route>
           </ProtectedRoute>
@@ -174,11 +177,11 @@ function App() {
                 username={username}
                 onSelectSong={handleSelectedSong}
                 songCards={songTopTenRecsCards}
+                errorState={errorState}
               />
             </Route>
           </ProtectedRoute>
         </Switch>
-
         <Footer />
         {activeModal === "preview" && (
           <SongModal

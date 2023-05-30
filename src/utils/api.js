@@ -8,39 +8,39 @@ export const checkResponse = (res) => {
 };
 
 async function fetchProfile(token) {
-  const result = await fetch("https://api.spotify.com/v1/me", {
+  return await fetch("https://api.spotify.com/v1/me", {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
-  });
+  }).then((res) => checkResponse(res));
 
-  return await result.json();
+  //return await result.json();
 }
 
 async function getTopTracks(token) {
-  const result = await fetch(
+  return await fetch(
     "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10",
     {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     }
-  );
+  ).then((res) => checkResponse(res));
 
-  return await result.json();
+  //return await result.json();
 }
 
 //https://api.spotify.com/v1/recommendations?limit=10&market=PL&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA%2C2Q9nA56DKKJhj4cHMbHlAS",
 
 async function getRecommendations(topTrackId, token) {
-  const result = await fetch(
+  return await fetch(
     `https://api.spotify.com/v1/recommendations?limit=10&market=US&seed_tracks=${topTrackId}
     `,
     {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     }
-  );
+  ).then((res) => checkResponse(res));
 
-  return await result.json();
+  // return await result.json();
 }
 
 export { fetchProfile, getTopTracks, getRecommendations };

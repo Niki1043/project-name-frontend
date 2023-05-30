@@ -1,7 +1,7 @@
 import "./SongsSection.css";
 import SongCard from "../SongCard/SongCard";
 
-const SongsSection = ({ songCards, onSelectSong, token }) => {
+const SongsSection = ({ songCards, onSelectSong }) => {
   return (
     <div className="songs">
       <h2 className="songs__header">List of songs</h2>
