@@ -13,12 +13,17 @@ Here is the link to the [Remix your Mix Spofity App](https://niki1043.github.io/
 ![AppLoginPage](https://github.com/Niki1043/project-name-frontend/assets/70037568/ef24dd3c-7054-4d75-8c92-05b363a1ef97)
 
 
-
 2. Once Logged In a Navigation bar will Popup showing your Spotify username, Top 10 Played and Top 10 Recommended in the top right corner of the page
+
+![LoggedInMainPage](https://github.com/Niki1043/project-name-frontend/assets/70037568/8f178427-65d3-4d1e-8442-a8714afbbb6e)
 
 3. The logo and username buttons will take you back to the login/logout page.
 
 4. The Top 10 Played button will take you to your Top 10 Played page. It will show 3 song cards at a time: click the Show More... button to see more tracks. Each song card shows the song name and the album cover art. You can click on each song card to enlarge it and show the artist name alongside the songname and album cover art.
+
+![SongCardPage](https://github.com/Niki1043/project-name-frontend/assets/70037568/5aa846cb-a0c2-4c3d-8a25-f2579745ad27)
+
+![SongModalPage](https://github.com/Niki1043/project-name-frontend/assets/70037568/a23f81a6-2ee2-468e-8dad-de33bded75ca)
 
 5. The Top 10 Recommended button will take you to your Top 10 Recommended page. It works the same way as the Top 10 Played page, but it shows recommended songs based on your most listened song.
 
