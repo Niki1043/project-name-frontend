@@ -2,7 +2,7 @@ import "./SongModal.css";
 
 const SongModal = ({ selectedSongCard, onClose }) => {
   return (
-    <div className={`modal`}>
+    <div className="modal">
       <div className="modal__container">
         <button
           className="modal__songcard-popup-close"
@@ -14,15 +14,13 @@ const SongModal = ({ selectedSongCard, onClose }) => {
           src={selectedSongCard.albumImage}
           alt={selectedSongCard.songName}
         />
-        <div className="modal__songcard-popup-text">
-          <div>
-            <div className="modal__songcard-popup-name">
-              {selectedSongCard.songName}
-            </div>
-            <div className="modal__songcard-popup-name">
-              {selectedSongCard.artistName}
-            </div>
-          </div>
+        <div className="modal__songcard-popup-caption">
+          <p className="modal__songcard-popup-text">
+            Song Name: {selectedSongCard.songName}
+          </p>
+          <p className="modal__songcard-popup-text">
+            Artist Name: {selectedSongCard.artistName}
+          </p>
         </div>
       </div>
     </div>

@@ -9,12 +9,8 @@ const SongCard = ({ songCards, onSelectSong }) => {
         alt={songCards.songName}
         onClick={() => onSelectSong(songCards)}
       />
-      <div
-        className="song-card__name-container"
-        // onClick={() => onSelectSong(topTenPlayedCards)}
-      >
+      <div className="song-card__name-container">
         <p className="song-card__name">{songCards.songName}</p>
-        <p className="song-card__artist">{songCards.artistName}</p>
       </div>
     </div>
   );

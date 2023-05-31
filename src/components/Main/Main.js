@@ -16,28 +16,78 @@ function Main({
   token,
   logout,
   username,
+  errorState,
 }) {
   return (
     <>
       <Header token={token} username={username} />
       <main className="main">
-        <img className="main__logo" src={headerLogo} alt="logo" />
-        <img className="main__logo" src={turnTable} alt="turntable" />
+        <div className="main__logo-container">
+          <img className="main__logo" src={headerLogo} alt="logo" />
+          <img className="main__logo" src={turnTable} alt="turntable" />
+        </div>
         <section className="main__login">
-          {!token ? (
+          {!token && !errorState ? (
             <a
               className="main__login-button"
               href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&code=${CODE}`}
             >
-              Login to Spotify
+              <button className="main__login-button" type="button">
+                Login to Spotify
+              </button>
             </a>
           ) : (
-            <button onClick={logout}>Logout</button>
+            <button
+              className="main__login-button"
+              type="button"
+              onClick={logout}
+            >
+              Logout
+            </button>
           )}
-
+          {/* {!token && errorState ? (
+            <a
+              className="main__login-button"
+              href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&code=${CODE}`}
+            >
+              <button className="main__login-button" type="button">
+                Login to Spotify
+              </button>
+            </a>
+          ) : (
+            <p>ERRORMESSAGEHERE</p>
+          )} */}
+          {/* {token && errorState ? (
+                 <button
+              className="main__login-button"
+              type="button"
+              onClick={logout}
+            >
+              Logout
+            </button>
+          ) : (
+            <p>ERRORMESSAGEHERE</p>
+          )} */}
+          {/* {token && !errorState ? (
+                 <button
+              className="main__login-button"
+              type="button"
+              onClick={logout}
+            >
+              Logout
+            </button>
+          ) : (
+            <button
+              className="main__login-button"
+              type="button"
+              onClick={logout}
+            >
+              Logout
+            </button>
+          )} */}
           <p className="main__login-text">
-            Login to Spotify to see your Top Played Songs and get
-            Recommnedations based on your Top Played Songs
+            Login to Spotify to see your Top 10 Played Songs and get
+            Recommendations based on your Top Played Songs
           </p>
         </section>
       </main>

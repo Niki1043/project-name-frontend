@@ -36,6 +36,7 @@ function App() {
   const [songTopTenPlayedCards, setSongTopTenPlayedCards] = useState([]);
   const [songTopTenRecsCards, setSongTopTenRecsCards] = useState([]);
   const [errorState, setErrorState] = useState(false);
+  const [index, setIndex] = useState(3); //assign in songs section
 
   // const throwError = () => {
   //   throw Error("I'm an error");
@@ -71,13 +72,38 @@ function App() {
     window.onload = window.localStorage.clear();
   };
 
-  // const handleCreateModal = () => {
-  //   setActiveModal("create");
-  // };
-
   const handleCloseModal = () => {
     setActiveModal("");
   };
+
+  // Close modal popup with Escape key
+  useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", closeByEscape);
+
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
+
+  // Close modal popup with OutsideClick
+
+  useEffect(() => {
+    const closeByOutsideClick = (e) => {
+      if (e.target.classList.contains("modal")) {
+        //console.log(e.target.classList.contains("modal"));
+        handleCloseModal();
+      }
+    };
+    // const modalOpened = document.querySelector(".modal");
+    // console.log(modalOpened);
+    document.addEventListener("mousedown", closeByOutsideClick);
+
+    return () => document.removeEventListener("mousedown", closeByOutsideClick);
+  }, []);
 
   const handleSelectedSong = (songcard) => {
     setActiveModal("preview");
@@ -145,7 +171,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
+      <div style={{ position: "relative" }}>
         <Switch>
           <Route exact path="/">
             <Main
@@ -157,6 +183,7 @@ function App() {
               token={token}
               logout={handleLogout}
               username={username}
+              errorState={errorState}
             />
           </Route>
           <ProtectedRoute path="/profile" token={token}>
@@ -167,6 +194,8 @@ function App() {
                 onSelectSong={handleSelectedSong}
                 songCards={songTopTenPlayedCards}
                 errorState={errorState}
+                onClick={() => setIndex((prevIndex) => prevIndex + 3)}
+                index={index}
               />
             </Route>
           </ProtectedRoute>
@@ -178,6 +207,8 @@ function App() {
                 onSelectSong={handleSelectedSong}
                 songCards={songTopTenRecsCards}
                 errorState={errorState}
+                onClick={() => setIndex((prevIndex) => prevIndex + 3)}
+                index={index}
               />
             </Route>
           </ProtectedRoute>

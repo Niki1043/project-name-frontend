@@ -1,12 +1,12 @@
 import "./SongsSection.css";
 import SongCard from "../SongCard/SongCard";
 
-const SongsSection = ({ songCards, onSelectSong }) => {
+const SongsSection = ({ songCards, onSelectSong, index, onClick }) => {
   return (
     <div className="songs">
-      <h2 className="songs__header">List of songs</h2>
+      <h2 className="songs__header">Top 10 Songs</h2>
       <div className="songs__card-container">
-        {songCards.map((x) => {
+        {songCards.slice(0, index).map((x) => {
           // console.log(x);
           return (
             <SongCard
@@ -16,6 +16,19 @@ const SongsSection = ({ songCards, onSelectSong }) => {
             />
           );
         })}
+      </div>
+      <div className="songs__show-more-container">
+        {index > 10 ? (
+          <></>
+        ) : (
+          <button
+            type="button"
+            className="songs__show-more-button"
+            onClick={onClick}
+          >
+            Show More...
+          </button>
+        )}
       </div>
     </div>
   );

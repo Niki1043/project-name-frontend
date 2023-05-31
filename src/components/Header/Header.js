@@ -5,7 +5,7 @@ import "./Header.css";
 import headerLogo from "../../images/Spotify-Icon-Logo.svg";
 import Navigation from "../Navigation/Navigation";
 
-const Header = ({ token, username }) => {
+const Header = ({ token, username, errorState }) => {
   return (
     <header className="header">
       <Link className="header__userinfo-link" to="/">
@@ -14,7 +14,7 @@ const Header = ({ token, username }) => {
           <h1 className="header__text">Remix your mix</h1>
         </div>
       </Link>
-      <Navigation token={token} username={username} />
+      <Navigation token={token} username={username} errorState={errorState} />
     </header>
   );
 };

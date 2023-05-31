@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 //not logged in => shuffles to login button on Main and about me
 // logged in => buttons are Top Tracks and Recommended Tracks
 // isLoggedIn for token value
-const Navigation = ({ token, username }) => {
+const Navigation = ({ token, username, errorState }) => {
   return (
     <div className="navbar">
-      {!token ? (
-        <></>
+      {!token || errorState ? (
+        <p></p>
       ) : (
         <div className="navbar__container">
           <Link className="navbar__userinfo-link" to="/">

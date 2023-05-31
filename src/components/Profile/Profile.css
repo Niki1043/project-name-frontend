@@ -4,14 +4,14 @@
     url("../../vendor/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
 }
 
-.rec-error {
+.profile-error {
   display: flex;
   justify-content: center;
   padding: 40px 40px;
   max-width: 1000px;
 }
 
-.rec-error__message {
+.profile-error__message {
   color: #000000;
   font-weight: 700;
   font-style: normal;

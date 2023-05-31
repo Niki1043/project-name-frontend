@@ -11,6 +11,7 @@
   align-content: center;
   min-height: 60px;
   padding: 0px 40px 0;
+  max-width: 1440px;
 }
 
 .header__userinfo-link {
