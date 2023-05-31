@@ -3,8 +3,8 @@ import SongsSection from "../SongsSection/SongsSection";
 import React from "react";
 import "./Profile.css";
 
-import SongModal from "../SongModal/SongModal";
-import { useState } from "react";
+// import SongModal from "../SongModal/SongModal";
+// import { useState } from "react";
 
 //Add in SongsSection - whcih contains songcard
 function Profile({

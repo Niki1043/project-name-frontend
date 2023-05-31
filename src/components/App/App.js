@@ -8,7 +8,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 // import Preloader from "../Preloader/Preloader";
 import Profile from "../Profile/Profile";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import {
   fetchProfile,
   getTopTracks,
@@ -25,8 +25,8 @@ function App() {
   const RESPONSE_TYPE = "token";
   const SCOPE =
     "user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-recently-played user-top-read";
-  const CODE =
-    "AQCnFPGX58SYLuXtwjlIMlPpa3xdOQIsyRbxWjqW69LXHGF4HqRqQhVkRSuCtqxuljSLzws0wHwLhCwlGTKfw6pksvW0HEOECocEQIQZ3c06JWlerCaywbZTJYeBcxYKn5rQWbhYWAwoMlLGFW-dwBHf64kpjG_CphzXMiulTesncjjCdPoP8lGnM-mfrjdFA80uBtA";
+  // const CODE =
+  //   "AQCnFPGX58SYLuXtwjlIMlPpa3xdOQIsyRbxWjqW69LXHGF4HqRqQhVkRSuCtqxuljSLzws0wHwLhCwlGTKfw6pksvW0HEOECocEQIQZ3c06JWlerCaywbZTJYeBcxYKn5rQWbhYWAwoMlLGFW-dwBHf64kpjG_CphzXMiulTesncjjCdPoP8lGnM-mfrjdFA80uBtA";
 
   // Set UseState
   const [token, setToken] = useState("");
@@ -52,10 +52,13 @@ function App() {
     // once logged in, gets and sets token from url
     if (!token && hash) {
       let token = hash
-        .substring(1)
-        .split("&")
-        .find((elem) => elem.startsWith("access_token"))
-        .split("=")[1];
+        ?.substring(2)
+        ?.split("&")
+        ?.find((elem) => elem.startsWith("access_token"))
+        ?.split("=")?.[1];
+      if (!token) {
+        return;
+      }
       window.location.hash = "";
       window.localStorage.setItem("token", token);
       setToken(token);
@@ -170,7 +173,7 @@ function App() {
   // console.log(songTopTenRecsCards);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div style={{ position: "relative" }}>
         <Switch>
           <Route exact path="/">
@@ -221,7 +224,7 @@ function App() {
           />
         )}
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
