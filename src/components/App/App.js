@@ -20,7 +20,7 @@ import Recommended from "../Recommended/Recommended";
 
 function App() {
   const CLIENT_ID = "ebaf5ea92e1a4c00a49e87c04ca73fec";
-  const REDIRECT_URI = "http://localhost:3000";
+  const REDIRECT_URI = "https://niki1043.github.io/project-name-frontend/";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
   const SCOPE =
