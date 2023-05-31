@@ -33,5 +33,5 @@ const SongsSection = ({ songCards, onSelectSong, index, onClick }) => {
     </div>
   );
 };
-// .map the api returned info and return Song Card here
+
 export default SongsSection;

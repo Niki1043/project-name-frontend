@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import React from "react";
 import { useEffect, useState } from "react";
 // import Header from "../Header/Header";
@@ -25,8 +25,6 @@ function App() {
   const RESPONSE_TYPE = "token";
   const SCOPE =
     "user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-recently-played user-top-read";
-  // const CODE =
-  //   "AQCnFPGX58SYLuXtwjlIMlPpa3xdOQIsyRbxWjqW69LXHGF4HqRqQhVkRSuCtqxuljSLzws0wHwLhCwlGTKfw6pksvW0HEOECocEQIQZ3c06JWlerCaywbZTJYeBcxYKn5rQWbhYWAwoMlLGFW-dwBHf64kpjG_CphzXMiulTesncjjCdPoP8lGnM-mfrjdFA80uBtA";
 
   // Set UseState
   const [token, setToken] = useState("");

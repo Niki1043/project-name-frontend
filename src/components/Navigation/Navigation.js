@@ -30,15 +30,6 @@ const Navigation = ({ token, username, errorState }) => {
         </div>
       )}
     </div>
-
-    // <div className="navbar">
-    //   <button type="button" className="navbar__button">
-    //     Login/Username Top x played (of your playlist)
-    //   </button>
-    //   <button type="button" className="navbar__button">
-    //     About/ Username Top x recs (from your top played)
-    //   </button>
-    // </div>
   );
 };
 
