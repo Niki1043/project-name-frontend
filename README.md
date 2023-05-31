@@ -10,6 +10,10 @@ Here is the link to the [Remix your Mix Spofity App](https://niki1043.github.io/
 
 1. Click the Login button on the main page to be redirected to Spotify's sign in page and enter your account details, create an account or click I agree.
 
+![AppLoginPage](https://github.com/Niki1043/project-name-frontend/assets/70037568/ef24dd3c-7054-4d75-8c92-05b363a1ef97)
+
+
+
 2. Once Logged In a Navigation bar will Popup showing your Spotify username, Top 10 Played and Top 10 Recommended in the top right corner of the page
 
 3. The logo and username buttons will take you back to the login/logout page.
