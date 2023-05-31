@@ -12,7 +12,6 @@ function Main({
   AUTH_ENDPOINT,
   RESPONSE_TYPE,
   SCOPE,
-  CODE,
   token,
   logout,
   username,
@@ -30,7 +29,7 @@ function Main({
           {!token && !errorState ? (
             <a
               className="main__login-button"
-              href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&code=${CODE}`}
+              href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
             >
               <button className="main__login-button" type="button">
                 Login to Spotify
@@ -45,46 +44,6 @@ function Main({
               Logout
             </button>
           )}
-          {/* {!token && errorState ? (
-            <a
-              className="main__login-button"
-              href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&code=${CODE}`}
-            >
-              <button className="main__login-button" type="button">
-                Login to Spotify
-              </button>
-            </a>
-          ) : (
-            <p>ERRORMESSAGEHERE</p>
-          )} */}
-          {/* {token && errorState ? (
-                 <button
-              className="main__login-button"
-              type="button"
-              onClick={logout}
-            >
-              Logout
-            </button>
-          ) : (
-            <p>ERRORMESSAGEHERE</p>
-          )} */}
-          {/* {token && !errorState ? (
-                 <button
-              className="main__login-button"
-              type="button"
-              onClick={logout}
-            >
-              Logout
-            </button>
-          ) : (
-            <button
-              className="main__login-button"
-              type="button"
-              onClick={logout}
-            >
-              Logout
-            </button>
-          )} */}
           <p className="main__login-text">
             Login to Spotify to see your Top 10 Played Songs and get
             Recommendations based on your Top Played Songs

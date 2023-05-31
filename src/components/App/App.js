@@ -93,7 +93,6 @@ function App() {
   }, []);
 
   // Close modal popup with OutsideClick
-
   useEffect(() => {
     const closeByOutsideClick = (e) => {
       if (e.target.classList.contains("modal")) {
@@ -113,7 +112,7 @@ function App() {
     setSelectedSong(songcard);
   };
 
-  /// Get user profile info
+  // Get user profile info
   useEffect(() => {
     const storedToken = window.localStorage.getItem("token");
     if (storedToken) {
@@ -128,7 +127,7 @@ function App() {
     }
   }, []);
 
-  ///Get User's top 10 most played tracks
+  // Get User's top 10 most played tracks
   useEffect(() => {
     const storedToken = window.localStorage.getItem("token");
     if (storedToken) {
@@ -169,7 +168,7 @@ function App() {
     }
   }, []);
 
-  // console.log(songTopTenPlayedCards); // tracks the info correctly as array of objects
+  // console.log(songTopTenPlayedCards);
   // console.log(songTopTenRecsCards);
 
   return (
