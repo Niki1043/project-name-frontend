@@ -1,3 +1,23 @@
+# Remix your mix Spotify App
+
+This project allows you to login to your Spotify app, and shows you your Top 10 Played tracks and your Top 10 Recommended Tracks.
+
+# GitHub Pages Link
+
+Here is the link to the [Remix your Mix Spofity App](https://niki1043.github.io/project-name-frontend/)
+
+# Remix your mix Spotify App Guide
+
+1. Click the Login button on the main page to be redirected to Spotify's sign in page and enter your account details, create an account or click I agree.
+
+2. Once Logged In a Navigation bar will Popup showing your Spotify username, Top 10 Played and Top 10 Recommended in the top right corner of the page
+
+3. The logo and username buttons will take you back to the login/logout page.
+
+4. The Top 10 Played button will take you to your Top 10 Played page. It will show 3 song cards at a time: click the Show More... button to see more tracks. Each song card shows the song name and the album cover art. You can click on each song card to enlarge it and show the artist name alongside the songname and album cover art.
+
+5. The Top 10 Recommended button will take you to your Top 10 Recommended page. It works the same way as the Top 10 Played page, but it shows recommended songs based on your most listened song.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
