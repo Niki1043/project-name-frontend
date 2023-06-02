@@ -143,21 +143,23 @@ function App() {
           });
           // console.log(songs_toptenplayed);
           setSongTopTenPlayedCards(songs_toptenplayed);
-          getRecommendations(songs_toptenplayed[0].trackId, storedToken).then(
-            (res) => {
-              //console.log(res.tracks);
-              const songs_toptenrecs = res.tracks.map((item) => {
-                return {
-                  albumImage: item.album.images[1].url,
-                  artistName: item.artists[0].name,
-                  trackId: item.id,
-                  songName: item.name,
-                };
-              });
-              //console.log(songs_toptenrecs);
-              setSongTopTenRecsCards(songs_toptenrecs);
-            }
-          );
+          if (songs_toptenplayed.length > 0) {
+            getRecommendations(songs_toptenplayed[0].trackId, storedToken).then(
+              (res) => {
+                //console.log(res.tracks);
+                const songs_toptenrecs = res.tracks.map((item) => {
+                  return {
+                    albumImage: item.album.images[1].url,
+                    artistName: item.artists[0].name,
+                    trackId: item.id,
+                    songName: item.name,
+                  };
+                });
+                //console.log(songs_toptenrecs);
+                setSongTopTenRecsCards(songs_toptenrecs);
+              }
+            );
+          }
         })
         .catch((err) => {
           console.log(err);
