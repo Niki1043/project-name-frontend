@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project-name-frontend/static/css/main.7ae2da4c.css",
-    "main.js": "/project-name-frontend/static/js/main.71d55cd2.js",
+    "main.js": "/project-name-frontend/static/js/main.71bbabb8.js",
     "static/js/787.b8943df6.chunk.js": "/project-name-frontend/static/js/787.b8943df6.chunk.js",
     "static/media/dj.svg": "/project-name-frontend/static/media/dj.d6bbd9aefcfeb6bd4bdd55351ab6b30f.svg",
     "static/media/CabinetGrotesk-Bold.woff": "/project-name-frontend/static/media/CabinetGrotesk-Bold.0fb1cbec860aa3537c32.woff",
@@ -12,11 +12,11 @@
     "static/media/Spotify-Icon-Logo.svg": "/project-name-frontend/static/media/Spotify-Icon-Logo.93e5215dc0126a03f77b29072170b2c6.svg",
     "static/media/popup-close-icon.svg": "/project-name-frontend/static/media/popup-close-icon.33bc5353dc8c138372ed.svg",
     "main.7ae2da4c.css.map": "/project-name-frontend/static/css/main.7ae2da4c.css.map",
-    "main.71d55cd2.js.map": "/project-name-frontend/static/js/main.71d55cd2.js.map",
+    "main.71bbabb8.js.map": "/project-name-frontend/static/js/main.71bbabb8.js.map",
     "787.b8943df6.chunk.js.map": "/project-name-frontend/static/js/787.b8943df6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7ae2da4c.css",
-    "static/js/main.71d55cd2.js"
+    "static/js/main.71bbabb8.js"
   ]
 }
