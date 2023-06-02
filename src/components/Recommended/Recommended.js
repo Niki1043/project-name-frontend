@@ -24,6 +24,13 @@ function Recommended({
             or return to the main page and try to login again.
           </p>
         </div>
+      ) : songCards.length === 0 ? (
+        <div className="rec-error">
+          <p className="rec-error__message">
+            No Song History Found/Song History Found but there are no
+            recommendations available at this time.
+          </p>
+        </div>
       ) : (
         <SongsSection
           songCards={songCards}

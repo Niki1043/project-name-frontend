@@ -27,6 +27,10 @@ function Profile({
             or return to the main page and try to login again.
           </p>
         </div>
+      ) : songCards.length === 0 ? (
+        <div className="profile-error">
+          <p className="profile-error__message"> No Song History Found</p>
+        </div>
       ) : (
         <SongsSection
           songCards={songCards}
