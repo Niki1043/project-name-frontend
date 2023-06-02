@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Cabinet-Grotesk";
+  src: url("../../vendor/fonts/CabinetGrotesk-Bold.woff") format("woff"),
+    url("../../vendor/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
+}
+
+/* .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+} */
+
+.navbar__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.navbar__button {
+  border: none;
+  background-color: #fff;
+  color: #000000;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.navbar__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .navbar__button {
+    font-size: 10px;
+  }
+  .navbar__container {
+    margin-top: -6px;
+  }
+}

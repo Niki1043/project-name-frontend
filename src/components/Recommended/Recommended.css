@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Cabinet-Grotesk";
+  src: url("../../vendor/fonts/CabinetGrotesk-Bold.woff") format("woff"),
+    url("../../vendor/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
+}
+
+.rec-error {
+  display: flex;
+  justify-content: center;
+  padding: 40px 40px;
+  max-width: 1000px;
+}
+
+.rec-error__message {
+  color: #000000;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
+  cursor: pointer;
+}

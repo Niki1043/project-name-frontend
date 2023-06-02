@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Cabinet-Grotesk";
+  src: url("../../vendor/fonts/CabinetGrotesk-Bold.woff") format("woff"),
+    url("../../vendor/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
+}
+
+.main {
+  padding: 40px 40px;
+  background-color: rgba(59, 75, 59, 0.5);
+  max-width: 1440px;
+}
+
+.main__logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.main__logo {
+  width: 70px;
+}
+
+.main__login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.main__login-button {
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 20px;
+  border: 1px;
+  color: #000000;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.main__login-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.main__login-text {
+  text-align: center;
+  margin: 20px auto;
+  color: #000000;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "Cabinet-Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .main__logo {
+    width: 50px;
+  }
+
+  .main__login-button {
+    font-size: 16px;
+  }
+
+  .main__login-text {
+    font-size: 12px;
+  }
+}
